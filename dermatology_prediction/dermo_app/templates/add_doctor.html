@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+        <head>
+            <meta charset="UTF-8">
+            <title>Title</title>
+            <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+            <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap4.min.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+            <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css">
+        </head>
+    <style>
+    #page-wrapper {
+    padding: 15px 15px;
+    min-height: 600px;
+    background-image: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("{% static 'assets/img/ext_0_2846180.jpg' %}");
+    }
+    .newdiv{
+        margin: auto;
+        width: 40%;
+        height: 100%;
+        border: 5px solid #7269f7a1;
+        border-radius: 55px;
+        padding: 100px;
+    }
+    label{
+        font-weight: 900;
+        color: rgb(80, 112, 255);
+    }
+    .s{
+        margin: auto;
+        /* padding: 10px; */
+        border-radius: 10px;
+        height: 30px;
+        width: 100px;
+        background-color: rgb(181, 181, 247);
+    }
+    /* input,select,textarea{
+        border: 2px solid rgb(245, 220, 220);
+        border-radius: 10px;
+        height: 30px;
+        width: 200px;
+    }
+    textarea{
+        height: 60px;
+    } */
+    h3{
+        font-style: italic;
+        color: green;
+
+    }
+    .containerr {
+  border-radius: 25px;
+  /* background:rgb(248, 230, 230); */
+  background-color: #ced4da;;
+  padding: 20px;
+  width:600px;
+  margin-left:400px;
+
+}
+    body{
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-color: black;
+        }
+
+</style>
+
+</head>
+<body style="background-color:white;">
+    {% include "navbase.html" %}
+
+    <br><br><br>
+        <h1 style="padding-left: 570px; color: white;">Add Doctor</h1><br>
+        <form method="POST" action="/save_doctor/">
+            {% csrf_token %}
+        <div class="containerr">
+            <img src="{% static 'images/hosp5.jpg' %}" height="200px" width="550px"><br>
+            <!-- <form action="/hosregister/" name="f1" method="POST"> -->
+            <div class="form-group">
+              <label for="fname">Name</label>
+              <input type="text" name="name" class="form-control" placeholder="Doctor name">
+            </div>
+                        <div class="form-group">
+              <label for="category">Level</label>
+              <input type="text" name="level" class="form-control" placeholder="level">
+            </div>
+                                    <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" name="email" class="form-control" placeholder="eg:abc@gmail.com">
+            </div>
+                                    <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" name="username" class="form-control" placeholder="username">
+            </div>
+                                    <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" name="password" class="form-control" placeholder="Password">
+            </div>
+              <input type="submit" value="Submit" class="btn btn-primary btn-xl">
+            </form>
+          </div>
+
+    </div>
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+	body{
+	background-image:url({% static 'images/hosp7.jpg' %});
+	background-repeat:no-repeat;
+	background-size:cover;
+	}
+	</style>
+</head>
+{% include 'doc_navbase.html' %}
+<body>
+<div class="container" style="padding-top:50px;">
+<center>
+    <h1 style="font-size:50px;  text-shadow: 2px 2px;">The Class of Dermatology</h1>
+    <br>
+
+{% if status == 0 %}
+<input type="text" value="Psoriasis" style="height:50px;font-size:30px;width:70px; ">
+{% elif status == 1 %}
+    <input type="text" value=" Aseboreic Dermatitis" style="height:50px;font-size:30px;">
+{% elif status == 2 %}
+    <input type="text" value="Lichen Planus" style="height:50px;font-size:30px;">
+{% elif status == 3 %}
+    <input type="text" value="Pityriasis rosea" style="height:50px;font-size:30px;">
+{% elif status == 4 %}
+    <input type="text" value="Cronic dermatitis" style="height:50px;font-size:30px;">
+{% else %}
+<input type="text" value="Pityriasis rubra pilaris" style="height:50px;font-size:30px;">
+{% endif %}
+    </center>
+    </div>
+</body>
+</html>

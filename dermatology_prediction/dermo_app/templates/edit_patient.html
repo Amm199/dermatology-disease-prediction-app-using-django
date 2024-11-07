@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+        <head>
+            <meta charset="UTF-8">
+            <title>Title</title>
+            <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+            <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap4.min.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+            <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        </head>
+    <style>
+    #page-wrapper {
+    padding: 15px 15px;
+    min-height: 600px;
+    background-image: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("{% static 'assets/img/ext_0_2846180.jpg' %}");
+    }
+    .newdiv{
+        margin: auto;
+        width: 40%;
+        height: 100%;
+        border: 5px solid #7269f7a1;
+        border-radius: 55px;
+        padding: 100px;
+    }
+    label{
+        font-weight: 900;
+        color: rgb(80, 112, 255);
+    }
+    .s{
+        margin: auto;
+        /* padding: 10px; */
+        border-radius: 10px;
+        height: 30px;
+        width: 100px;
+        background-color: rgb(181, 181, 247);
+    }
+    /* input,select,textarea{
+        border: 2px solid rgb(245, 220, 220);
+        border-radius: 10px;
+        height: 30px;
+        width: 200px;
+    }
+    textarea{
+        height: 60px;
+    } */
+    h3{
+        font-style: italic;
+        color: green;
+
+    }
+    .containerr {
+  border-radius: 25px;
+  /* background:rgb(248, 230, 230); */
+  background-color: #ced4da;;
+  padding: 20px;
+  width:600px;
+  margin-left:400px;
+
+}
+body{
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-color: black;
+        }
+    </style>
+
+</head>
+<body>
+    {% include "navbase.html" %}
+    <form method="POST" action="/update_patient/{{data.id}}">
+        {% csrf_token %}
+    <br><br><br>
+        <h1 style="padding-left: 570px; color: white;">Edit Patient</h1><br>
+        <div class="containerr">
+            <img src="{% static 'images/bg3.jpeg' %}" height="200px" width="550px"><br>
+        <div class="form-group">
+            <label for="fname">Doctor Name</label>
+            <input type="text" name="city" class="form-control" value="{{data.doctor_name}}" readonly>
+          </div>
+<div class="form-group">
+            <label for="fname">Patient Name</label>
+            <input type="text" name="patient_name" class="form-control" value="{{data.patient_name}}">
+          </div>
+                      <div class="form-group">
+            <label for="fname">Address</label>
+            <input type="text" name="address" class="form-control"  value="{{data.address}}" >
+          </div>
+                      <div class="form-group">
+            <label for="fname">Email</label>
+            <input type="email" name="email" class="form-control"  value="{{data.email}}">
+          </div>
+                      <div class="form-group">
+            <label for="fname">Mobile</label>
+            <input type="number" name="mobile" class="form-control"  value="{{data.mobile}}">
+          </div>
+                      <div class="form-group">
+            <label for="fname">Username</label>
+            <input type="text" name="username" class="form-control"  value="{{data.username}}">
+          </div>
+                      <div class="form-group">
+            <label for="fname">Password</label>
+            <input type="text" name="password" class="form-control" value="{{data.password}}">
+          </div>
+      <input type="submit" value="Submit" class="btn btn-primary btn-xl">
+    </form>
+  </div>
+</div>
+</div>
+</form>
+</body>
+</html>

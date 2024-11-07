@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="{% static 'https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap' %}" rel="stylesheet">
+
+	<link rel="stylesheet" href="{% static 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css2/style.css' %}"> -->
+    <title>Admin Login</title>
+</head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600&display=swap');
+#bgg{
+    background-image: url("{% static 'images/hosp8.jpg' %}") ;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+}
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    padding-bottom: px;
+}
+.login-box{
+background: rgba(106, 196, 248, 0.22);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(6.5px);
+-webkit-backdrop-filter: blur(6.5px);
+border: 1px solid rgba(214, 208, 208, 0.3);
+height: 550px;
+width: 450px;
+}
+.text-login p{
+    color: white;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+}
+.text-login span{
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    color: rgb(95, 84, 84);
+}
+.text-login{
+    text-align: center;
+}
+form{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.login-form{
+    margin-top: 40px;
+}
+.form-control{
+    margin-top: 20px;
+    width: 350px;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    color: rgb(37, 33, 33);
+    height: 40px;
+    border: #00000033 1px solid;
+    font-size: 20px;
+    border-radius: 15px;
+    background-color: #a5a5a524;
+}
+.form-control::placeholder{
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Quicksand', sans-serif;
+    color:rgb(196, 196, 196);
+}
+.form-control:focus{
+    outline: none;
+}
+.form-enter{
+    margin-top: 20px;
+    width: 200px;
+    font-weight: bold;
+    height: 45px;
+    border-radius: 10px;
+    background:white;
+    font-family: 'Quicksand', sans-serif;
+    border: transparent 1px solid;
+}
+hr{
+    width: 70%;
+    margin-top: 40px;
+}
+.social-login p{
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    text-transform: capitalize;
+}
+.social-links{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.fab{
+    color:white;
+    border-radius: 20px;
+    font-size: 40px;
+    width: 50px;
+    height: 50px;
+} 
+label{
+    font-size: x-large;
+    font-family: 'Quicksand', sans-serif;
+    color: rgb(8, 8, 8);
+}
+    </style>
+    <body id="bgg" class="img js-fullheight" style="height: 240px; padding-top: 10px;">
+
+    <div class="main">
+        <div class="login-box">
+            <div class="text-login">
+            <p> Admin Login</p>
+            <span><h3>Use your credentials to log in.</h3></span>
+            </div>
+            <div class="login-form">
+                <form method="POST" action="/admin_login_view/">
+                    {% csrf_token %}
+                    <label><b>USERNAME:</b></label>
+                    <input class="form-control" type="text"  name="username" style="background-color: rgb(196, 196, 196);" placeholder="">&nbsp;
+                    <label><b>PASSWORD:</b></label>
+                    <input class="form-control" type="password"  name="password" style="background-color: rgb(196, 196, 196);" placeholder="">
+                    <!-- <a href=/newdashboard class="form-control btn btn-primary submit px-3" style="background-color:rgb(122, 222, 247);">Sign In</a> -->
+                    <input class="form-enter" type="submit" style="background-color:rgb(122, 222, 247);" value="Login">
+                </form>
+                <hr>
+                <div class="social-login">
+                    <div class="social-links">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-google"></i>
+                        <i class="fab fa-apple"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>   -->
+
+<!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    var message = '{{message}}'
+    if (message == "invalid"){
+        sweetAlert("Incorrect Username or Password","","error");
+    }
+</script>
+</body>
+</html>
